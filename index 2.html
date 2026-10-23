@@ -1,0 +1,148 @@
+<nav>
+    <a href="index.html">Home</a>
+    <a href="applications.html">Applications</a>
+    <a href="rules.html">Rules</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="staff.html">Staff Portal</a>
+</nav>
+
+<div class="cards">
+
+<div class="card" onclick="showForm('support')">
+    <h2>Customer Support</h2>
+</div>
+
+<div class="card" onclick="showForm('moderator')">
+    <h2>Moderator</h2>
+</div>
+
+</div>
+
+<div id="support" class="form">
+
+<input id="sDiscord" placeholder="Discord Username">
+
+<textarea id="sReason"
+placeholder="Why should we choose you?"></textarea>
+
+<button onclick="submitSupport()">
+Submit
+</button>
+
+</div>
+
+<div id="moderator" class="form">
+
+<input id="mDiscord" placeholder="Discord Username">
+
+<textarea id="mReason"
+placeholder="Why should we choose you?"></textarea>
+
+<button onclick="submitModerator()">
+Submit
+</button>
+
+</div>
+
+function showForm(id){
+
+document.getElementById("support").style.display="none";
+document.getElementById("moderator").style.display="none";
+
+document.getElementById(id).style.display="block";
+
+}
+
+function submitSupport(){
+
+const app = {
+position:"Customer Support",
+discord:document.getElementById("sDiscord").value,
+reason:document.getElementById("sReason").value
+};
+
+localStorage.setItem(
+"app_"+Date.now(),
+JSON.stringify(app)
+);
+
+alert("Application Submitted");
+
+}
+
+function submitModerator(){
+
+const app = {
+position:"Moderator",
+discord:document.getElementById("mDiscord").value,
+reason:document.getElementById("mReason").value
+};
+
+localStorage.setItem(
+"app_"+Date.now(),
+JSON.stringify(app)
+);
+
+alert("Application Submitted");
+
+}
+
+<h1>Staff Portal</h1>
+
+<div id="applications"></div>
+
+<script src="js/staff.js"></script>
+
+let container =
+document.getElementById("applications");
+
+for(let i=0;i<localStorage.length;i++){
+
+let key=localStorage.key(i);
+
+if(key.startsWith("app_")){
+
+let app=
+JSON.parse(localStorage.getItem(key));
+
+container.innerHTML += `
+
+<div class="appCard">
+
+<h3>${app.position}</h3>
+
+<p>${app.discord}</p>
+
+<p>${app.reason}</p>
+
+<button onclick="approve('${key}')">
+Approve
+</button>
+
+<button onclick="deny('${key}')">
+Deny
+</button>
+
+</div>
+
+`;
+
+}
+
+}
+
+function approve(key){
+
+alert("Approved");
+localStorage.removeItem(key);
+location.reload();
+
+}
+
+function deny(key){
+
+alert("Denied");
+localStorage.removeItem(key);
+location.reload();
+
+}
