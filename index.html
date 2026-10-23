@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wild Country Roleplay</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#121212;
+    color:white;
+}
+
+header{
+    background:#1b1b1b;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#4ade80;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+}
+
+nav a:hover{
+    color:#4ade80;
+}
+
+.hero{
+    height:75vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+    url("https://images.unsplash.com/photo-1506744038136-46273834b3fb");
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content h1{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    font-size:20px;
+    margin-bottom:25px;
+}
+
+.btn{
+    text-decoration:none;
+    background:#4ade80;
+    color:black;
+    padding:12px 30px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#22c55e;
+}
+
+footer{
+    background:#1b1b1b;
+    text-align:center;
+    padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Wild Country Roleplay</div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Rules</a>
+        <a href="#">Gallery</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Wild Country Roleplay</h1>
+        <p>Experience realistic country life roleplay.</p>
+        <a href="#" class="btn">Get Started</a>
+    </div>
+</section>
+
+<footer>
+    Wild Country Roleplay
+</footer>
+
+</body>
+</html>
+
+</body>
+
+<header>
+    <h1>Wild Country Roleplay Applications</h1>
+</header>
+
+<div class="container">
+
+    <div class="cards">
+
+        <div class="card" onclick="showForm('support')">
+            <h2>Customer Support</h2>
+            <p>Help players and answer questions.</p>
+        </div>
+
+        <div class="card" onclick="showForm('mod')">
+            <h2>Moderator</h2>
+            <p>Keep the community safe and enforce rules.</p>
+        </div>
+
+    </div>
+
+    <div id="support" class="form">
+        <h2>Customer Support Application</h2>
+
+        <input type="text" placeholder="Discord Username">
+        <input type="text" placeholder="Discord ID">
+        <input type="text" placeholder="Roblox Username">
+        <input type="text" placeholder="Age">
+        <textarea placeholder="Why do you want to join Customer Support?" rows="5"></textarea>
+
+        <button>Submit Application</button>
+    </div>
+
+    <div id="mod" class="form">
+        <h2>Moderator Application</h2>
+
+        <input type="text" placeholder="Discord Username">
+        <input type="text" placeholder="Discord ID">
+        <input type="text" placeholder="Roblox Username">
+        <input type="text" placeholder="Age">
+        <textarea placeholder="Why do you want to become a Moderator?" rows="5"></textarea>
+
+        <button>Submit Application</button>
+    </div>
+
+</div>
+
+<script>
+function showForm(formId){
+
+    document.getElementById("support").style.display = "none";
+    document.getElementById("mod").style.display = "none";
+
+    document.getElementById(formId).style.display = "block";
+}
+</script>
+
+</body>
+</html>
+
